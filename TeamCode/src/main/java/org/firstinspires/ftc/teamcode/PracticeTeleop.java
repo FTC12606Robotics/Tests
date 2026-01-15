@@ -6,16 +6,16 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
-@TeleOp(name="UnderstudyTeleopTest", group="")
-public class UnderstudyTeleopTest extends LinearOpMode {
-    public UnderstudyTeleopTest() throws InterruptedException {}
+@TeleOp(name="PracticeTeleop", group="")
+public class PracticeTeleop extends LinearOpMode {
+    public PracticeTeleop() throws InterruptedException {}
 
     @Override
     public void runOpMode() throws InterruptedException {
 
         //=====Set up classes=====
         Drivetrain drivetrain = new Drivetrain(hardwareMap, telemetry, "BNO055IMU");
-        UnderstudyOuttakeTest outtake = new UnderstudyOuttakeTest(hardwareMap, telemetry);
+        PracticeOuttake outtake = new PracticeOuttake(hardwareMap, telemetry);
 
         //=====Set up variables=====
         double joyx, joyy, joyz, gas, brake, baseSpeed;

@@ -1,11 +1,15 @@
+/** This is a copy of the outtake used previously this year.
+ It is a simple outtake with, I'm pretty sure all of the basics. The current
+ and actually outtake that we use for comp is more complicated. Don't worry we will get there.**/
+
 package org.firstinspires.ftc.teamcode;
 
 import static java.lang.Thread.sleep;
 
-import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.CRServo; //Continuous Servo Import Statement
+import com.qualcomm.robotcore.hardware.Servo; // Regular Servo Import Statement
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
