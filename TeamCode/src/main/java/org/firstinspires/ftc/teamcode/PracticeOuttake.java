@@ -11,9 +11,7 @@ package org.firstinspires.ftc.teamcode;
 
 //By importing HardwareMap and using it while initializing this class we allow
 //the program to find different electronic elements on the bot. #Needed
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.Servo;
 
 //Import to allow us to write things to the driver station screen.
 import org.firstinspires.ftc.robotcore.external.Telemetry;

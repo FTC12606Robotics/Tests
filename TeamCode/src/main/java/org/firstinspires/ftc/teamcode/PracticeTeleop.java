@@ -1,7 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
-import static java.lang.Math.PI;
+import static java.lang.Math.PI; //We use pi when calculating field centric movement
 
+//There are a couple different import statements when we program teleop and autonomous
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Gamepad;
@@ -13,17 +14,20 @@ public class PracticeTeleop extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
 
+        //NOTE: We declare/initialize our classes we want to use here. By naming its type, name we
+        // want to call it by, and its initializer
         //=====Set up classes=====
         Drivetrain drivetrain = new Drivetrain(hardwareMap, telemetry, "BNO055IMU");
-        PracticeOuttake outtake = new PracticeOuttake(hardwareMap, telemetry);
+        //TODO TeleOp Assignment 1: Initialize the PracticeOuttake class that we worked on.
 
         //=====Set up variables=====
         double joyx, joyy, joyz, gas, brake, baseSpeed;
-        boolean centricityToggle, resetDriveAngle; //Depending on how you want to setup the triggers, you will need a variable for it TODO
+        boolean centricityToggle, resetDriveAngle; //Depending on how you want to setup how functions trigger, you may need a variable for it.
         Drivetrain.Centricity centricity = Drivetrain.Centricity.FIELD;
 
         baseSpeed = .4;
 
+        //There are previous and current gamepads to allow for the sensing of button presses. i.e. the state change.
         Gamepad currentGamepad1 = new Gamepad();
         Gamepad currentGamepad2 = new Gamepad();
         Gamepad previousGamepad1 = new Gamepad();
@@ -45,7 +49,7 @@ public class PracticeTeleop extends LinearOpMode {
         }
 
         while(opModeIsActive()){
-            //set up inputs
+            //Update the controllers every loop
             try {
                 previousGamepad1.copy(currentGamepad1);
                 previousGamepad2.copy(currentGamepad2);
@@ -64,7 +68,7 @@ public class PracticeTeleop extends LinearOpMode {
 
             //inputs that toggle the modes
             centricityToggle = currentGamepad1.dpad_down && !previousGamepad1.dpad_down; //change whether the drive is bot or field centric
-            resetDriveAngle = currentGamepad1.dpad_up; //use when the robot is facing away from you
+            resetDriveAngle = currentGamepad1.dpad_up && !previousGamepad1.dpad_up; //use when the robot is facing away from you
 
             //code to switch between field centric and bot centric drive
             if(centricityToggle){
@@ -77,9 +81,8 @@ public class PracticeTeleop extends LinearOpMode {
             }
             telemetry.addData("Centricity: ", centricity);
 
-            //Pin Flick inputs ==> TODO
-
-
+            //TODO TeleOp Assignment 2: As you read through the inputs try and figure out what they do.
+            // .
 
 
             //set up vectors
