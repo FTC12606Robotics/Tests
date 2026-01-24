@@ -33,6 +33,22 @@ public class PracticeTeleop extends LinearOpMode {
         Gamepad previousGamepad1 = new Gamepad();
         Gamepad previousGamepad2 = new Gamepad();
 
+        /**In an Opmode there is a specific flow of the programming.
+           1. On Initialization (Code to run that runs when the init button is pressed)
+           2. Initialization Loop (Code that runs constantly after init but before start button is pressed)
+           3. On Start (when the start button is pressed)
+           4. Main Loop
+           5. On Stop (unused/not really needed)
+         These can be accessed in a variety of ways and used in a variety of ways.
+         On Initialization code is like the code above where variables and classes are set up.
+         Initialization Loop code is not used to much for teleop (we use it in auto to setup what to do),
+         but we have code for the game pads just in case we need them.
+         On Start Code is also not really used for teleop, but is useful in auto.
+         The main loop contains code that needs updating every loop, gamepad inputs, driving, etc.
+         **/
+
+
+        //Init Loop
         while (!isStarted() && !isStopRequested()) {
 
             try {
@@ -82,7 +98,8 @@ public class PracticeTeleop extends LinearOpMode {
             telemetry.addData("Centricity: ", centricity);
 
             //TODO TeleOp Assignment 2: As you read through the inputs try and figure out what they do.
-            // .
+            // And assign a 2 unused buttons to a boolean to be able to switch the servo states you made
+            // in the PracticeOuttake (Hint: you will need to make your own bools).
 
 
             //set up vectors
@@ -100,7 +117,7 @@ public class PracticeTeleop extends LinearOpMode {
             telemetry.addData("brake: ", brake);
 
 
-            //set and print motor powers
+            //Set drive motor powers
             double[] motorPowers = drivetrain.driveVectors(centricity, joyx, joyy, joyz, baseSpeed+gas+brake);
             //For drive motor debugging
             /*for (double line:motorPowers){
@@ -113,12 +130,15 @@ public class PracticeTeleop extends LinearOpMode {
             }
 
 
-            //Code to flick pins here - yay! ==> TODO
+            //TODO TeleOp Assignment 3: Write code that uses your outtake class to move the servo, using the two
+            // buttons you set up in assignment 2, and also write code to use 1 button that will toggle automatically.
+
+            //TODO TeleOp Assignment 4: Write code that sets the outtake motor power. (Bonus: use a joystick for it.)
 
 
 
             //end step
-            telemetry.update();
+            telemetry.update(); //For telemetry to update on the driver station we have to update it in the code every loop.
         }
 
     }
